@@ -69,13 +69,13 @@
         </section>
 
         <section class="space-x-2 mt-5">
-            <button class="btn  btn-primary w-20">All</button>
-            <button class="btn btn-outline">Interview</button>
-            <button class="btn btn-outline">Rejected</button>
+            <button onclick="toggleBtn('all-btn')" id="all-btn" class="btn  btn-primary w-20">All</button>
+            <button onclick="toggleBtn('interview-btn')" id="interview-btn" class="btn btn-outline">Interview</button>
+            <button onclick="toggleBtn('rejected-btn')" id="rejected-btn" class="btn btn-outline">Rejected</button>
         </section>
 
-        <section class="mt-8 space-y-7">
-            <div class="bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
+        <section id="all-cards" class="mt-8 space-y-7">
+            <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
                 <div class="w-full">
                     <h3 class="text-base font-semibold mb-1">Mobile First Corp</h3>
                     <p class="text-[#64748B] mb-4">React Native Deviloper</p>
@@ -89,12 +89,12 @@
                         <button class="btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <div>
+                <button class="mb-52">
                     <i class="fa-regular fa-trash-can"></i>
-                </div>
+                </button>
             </div>
 
-            <div class="bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
+            <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
                 <div class="w-full">
                     <h3 class="text-base font-semibold mb-1">WebFlow Agency</h3>
                     <p class="text-[#64748B] mb-4">Web Designer & Developer</p>
@@ -107,12 +107,12 @@
                         <button class="btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <div>
+                <button class="mb-52">
                     <i class="fa-regular fa-trash-can"></i>
-                </div>
+                </button>
             </div>
 
-            <div class="bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
+            <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
                 <div class="w-full">
                     <h3 class="text-base font-semibold mb-1">DataViz Solutions</h3>
                     <p class="text-[#64748B] mb-4">Data Visualization Specialist</p>
@@ -126,12 +126,12 @@
                         <button class="btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <div>
+                <button class="mb-52">
                     <i class="fa-regular fa-trash-can"></i>
-                </div>
+                </button>
             </div>
 
-            <div class="bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
+            <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
                 <div class="w-full">
                     <h3 class="text-base font-semibold mb-1">CloudFirst Inc</h3>
                     <p class="text-[#64748B] mb-4">Backend Developer</p>
@@ -145,12 +145,12 @@
                         <button class="btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <div>
+                <button class="mb-52">
                     <i class="fa-regular fa-trash-can"></i>
-                </div>
+                </button>
             </div>
 
-            <div class="bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
+            <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
                 <div class="w-full">
                     <h3 class="text-base font-semibold mb-1">Innovation Labs</h3>
                     <p class="text-[#64748B] mb-4">UI/UX Engineer</p>
@@ -164,12 +164,12 @@
                         <button class="btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <div>
+                <button class="mb-52">
                     <i class="fa-regular fa-trash-can"></i>
-                </div>
+                </button>
             </div>
 
-            <div class="bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
+            <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
                 <div class="w-full">
                     <h3 class="text-base font-semibold mb-1">MegaCorp Solutions</h3>
                     <p class="text-[#64748B] mb-4">JavaScript Developer</p>
@@ -184,12 +184,12 @@
                         <button class="btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <div>
+                <button class="mb-52">
                     <i class="fa-regular fa-trash-can"></i>
-                </div>
+                </button>
             </div>
 
-            <div class="bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
+            <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
                 <div class="w-full">
                     <h3 class="text-base font-semibold mb-1">StartupXYZ</h3>
                     <p class="text-[#64748B] mb-4">Full Stack Engineer</p>
@@ -203,12 +203,12 @@
                         <button class="btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <div>
+                <button class="mb-52">
                     <i class="fa-regular fa-trash-can"></i>
-                </div>
+                </button>
             </div>
 
-            <div class="bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
+            <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
                 <div class="w-full">
                     <h3 class="text-base font-semibold mb-1">TechCorp Industries</h3>
                     <p class="text-[#64748B] mb-4">Senior Frontend Developer</p>
@@ -223,14 +223,25 @@
                         <button class="btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <div>
+                <button class="mb-52">
                     <i class="fa-regular fa-trash-can"></i>
-                </div>
+                </button>
             </div>
         </section>
 
     </main>
 
+    <section id="no-jobs" class="w-[80%] mx-auto text-center bg-white shadow-md py-10 h-[300px] rounded-lg border border-gray-300 hidden">
+        <div>
+            <i class="fa-regular fa-file-lines text-6xl mb-5"></i>
+        </div>
+
+        <h2 class="text-xl font-bold mb-1">No jobs available</h2>
+        <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+    </section>
+
+    <script src="./machine.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
