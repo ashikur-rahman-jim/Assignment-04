@@ -34,7 +34,7 @@
 
         <h2 class="my-5 text-3xl font-bold">Job Application Tracker</h2>
 
-        <div class="grid grid-cols-3 gap-4 py-3">
+        <div id="jobs-count-container" class="grid grid-cols-3 gap-4 py-3">
 
             <div class="border border-gray-500 rounded-lg p-4 bg-white">
                 <p class="font-medium">Total</p>
@@ -57,14 +57,14 @@
 
     <hr class="w-[80%] mx-auto my-4 border border-gray-300">
 
-    <main class="w-[80%] mx-auto my-4">
+    <main id="main-container" class="w-[80%] mx-auto my-4">
 
         <section class="flex justify-between">
             <div>
                 <h3 class="text-lg font-semibold">Available Jobs</h3>
             </div>
             <div>
-                <p class="font-medium"><span id="jobs">0</span> jobs</p>
+                <p class="font-medium"><span id="jobs-count">0</span> jobs</p>
             </div>
         </section>
 
@@ -85,13 +85,13 @@
                         products
                         used by millions of users worldwide.</p>
                     <div class="flex items-center gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <button class="mb-52">
-                    <i class="fa-regular fa-trash-can"></i>
-                </button>
+                <div>
+                    <button class="delete-btn cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
             </div>
 
             <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
@@ -103,13 +103,13 @@
                     <p class="text-[#323B49] my-4">Create stunning web experiences for high-profile clients. Must have
                         portfolio and experience with modern web design trends.</p>
                     <div class="flex items-center gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <button class="mb-52">
-                    <i class="fa-regular fa-trash-can"></i>
-                </button>
+                <div>
+                    <button class="delete-btn cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
             </div>
 
             <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
@@ -122,13 +122,13 @@
                         skills:
                         D3.js, React, and strong analytical thinking.</p>
                     <div class="flex items-center gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <button class="mb-52">
-                    <i class="fa-regular fa-trash-can"></i>
-                </button>
+                <div>
+                    <button class="delete-btn cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
             </div>
 
             <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
@@ -141,13 +141,13 @@
                         Work
                         with modern DevOps practices and cloud infrastructure.</p>
                     <div class="flex items-center gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <button class="mb-52">
-                    <i class="fa-regular fa-trash-can"></i>
-                </button>
+                <div>
+                    <button class="delete-btn cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
             </div>
 
             <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
@@ -160,13 +160,13 @@
                         products
                         used by millions of users worldwide.</p>
                     <div class="flex items-center gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <button class="mb-52">
-                    <i class="fa-regular fa-trash-can"></i>
-                </button>
+                <div>
+                    <button class="delete-btn cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
             </div>
 
             <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
@@ -180,13 +180,13 @@
                         offer competitive compensation, health insurance, and professional development opportunities.
                     </p>
                     <div class="flex items-center gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <button class="mb-52">
-                    <i class="fa-regular fa-trash-can"></i>
-                </button>
+                <div>
+                    <button class="delete-btn cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
             </div>
 
             <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
@@ -199,13 +199,13 @@
                         Experience
                         with Node.js and React required. Great benefits and equity package included.</p>
                     <div class="flex items-center gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <button class="mb-52">
-                    <i class="fa-regular fa-trash-can"></i>
-                </button>
+                <div>
+                    <button class="delete-btn cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
             </div>
 
             <div class="cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300">
@@ -219,13 +219,13 @@
                         web applications using React and TypeScript. You will work with a talented team on cutting-edge
                         projects.</p>
                     <div class="flex items-center gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
-                <button class="mb-52">
-                    <i class="fa-regular fa-trash-can"></i>
-                </button>
+                <div>
+                    <button class="delete-btn cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
             </div>
         </section>
 

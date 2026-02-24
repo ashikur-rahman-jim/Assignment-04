@@ -2,12 +2,12 @@
 const total = getId('total');
 const interview = getId('interview');
 const rejected = getId('rejected');
-const jobs = getId('jobs');
+const jobsCount = getId('jobs-count');
 
 // Get all-cards and all-cards length add to total,jobs.
 const allCards = getId('all-cards');
 total.innerText = allCards.children.length;
-jobs.innerText = allCards.children.length;
+jobsCount.innerText = allCards.children.length;
 
 // Style toggle button
 const allBtn = getId('all-btn');
