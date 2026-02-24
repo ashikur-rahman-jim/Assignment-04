@@ -21,6 +21,17 @@ const allFilterBtn = getId('all-filter-btn');
 const interviewFilterBtn = getId('interview-filter-btn');
 const rejectedFilterBtn = getId('rejected-filter-btn');
 
+// No jobs section show/hide function
+function updateNoJobs(list) {
+    if (list.length === 0) {
+        noJobs.classList.remove('hidden');
+        filterSection.classList.add('hidden');
+    } else {
+        noJobs.classList.add('hidden');
+        filterSection.classList.remove('hidden');
+    }
+}
+
 function toggleBtn(id) {
     allFilterBtn.classList.remove('btn-primary');
     interviewFilterBtn.classList.remove('btn-primary');
@@ -34,13 +45,31 @@ function toggleBtn(id) {
     select.classList.remove('btn-outline');
     select.classList.add('btn-primary');
 
-    if (id === 'interview-filter-btn' || id === 'rejected-filter-btn') {
-        // const cards = document.querySelectorAll('.cards').classList.add('hidden');
+    // if (id === 'interview-filter-btn' || id === 'rejected-filter-btn') {
+    //     // const cards = document.querySelectorAll('.cards').classList.add('hidden');
+    //     allCards.classList.add('hidden');
+    //     noJobs.classList.remove('hidden');
+    // } else {
+    //     allCards.classList.remove('hidden');
+    //     noJobs.classList.add('hidden');
+    // }
+
+    if (id === 'interview-filter-btn') {
         allCards.classList.add('hidden');
-        noJobs.classList.remove('hidden');
-    } else {
-        allCards.classList.remove('hidden');
         noJobs.classList.add('hidden');
+        filterSection.classList.remove('hidden');
+        renderInterview();
+        updateNoJobs(interviewList);
+    } else if (id === 'all-filter-btn') {
+        allCards.classList.remove('hidden');
+        filterSection.classList.add('hidden');
+        noJobs.classList.add('hidden');
+    } else if (id === 'rejected-filter-btn') {
+        allCards.classList.add('hidden');
+        noJobs.classList.add('hidden');
+        filterSection.classList.remove('hidden');
+        renderRejected();
+        updateNoJobs(rejectedList);
     }
 
 }
