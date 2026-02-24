@@ -8,6 +8,7 @@ let interviewList = [];
 let rejectedList = [];
 
 const mainContainer = getId('main-container');
+const filterSection = getId('filter-section');
 const noJobs = getId('no-jobs');
 
 // Get all-cards and all-cards length add to total,jobs.
@@ -74,6 +75,7 @@ mainContainer.addEventListener('click', function (event) {
             interviewList.push(cardInfo);
         }
         console.log(interviewList.length);
+        renderInterview();
 
     } else if (event.target.classList.contains('btn-rejected')) {
         const parenNode = event.target.parentNode.parentNode;
@@ -102,6 +104,70 @@ mainContainer.addEventListener('click', function (event) {
             rejectedList.push(cardInfo);
         }
         console.log(rejectedList.length);
+        renderRejected();
     }
 
 })
+
+
+// HTML file create
+function renderInterview() {
+    // make the filterSection empty every time
+    filterSection.innerHTML = '';
+
+    // creating innerHTML
+    for (let interview of interviewList) {
+        console.log(interview);
+
+        let div = document.createElement('div');
+        div.className = 'cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300'
+        div.innerHTML = `
+        <div class="w-full">
+                    <h3 class="company-name text-base font-semibold mb-1">${interview.companyName}</h3>
+                    <p class="position text-[#64748B] mb-4">${interview.position}</p>
+                    <p class="location-salary text-[#64748B] mb-7">${interview.locationSalary}</p>
+                    <span class="stats bg-[#EEF4FF] text-[#002C5C] px-2 py-1 font-medium rounded-md border border-[#002C5C] text-[14px]">${interview.stats}</span>
+                    <p class="description text-[#323B49] my-4">${interview.description}</p>
+                    <div class="flex items-center gap-3">
+                        <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+                <div>
+                    <button class="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+        `
+        filterSection.appendChild(div)
+    }
+}
+
+
+function renderRejected() {
+    // make the filterSection empty every time
+    filterSection.innerHTML = '';
+
+    // creating innerHTML
+    for (let rejected of rejectedList) {
+        console.log(rejected);
+
+        let div = document.createElement('div');
+        div.className = 'cards bg-white shadow-md p-5 rounded-lg flex border border-gray-300'
+        div.innerHTML = `
+        <div class="w-full">
+                    <h3 class="company-name text-base font-semibold mb-1">${rejected.companyName}</h3>
+                    <p class="position text-[#64748B] mb-4">${rejected.position}</p>
+                    <p class="location-salary text-[#64748B] mb-7">${rejected.locationSalary}</p>
+                    <span class="stats bg-[#EEF4FF] text-[#002C5C] px-2 py-1 font-medium rounded-md border border-[#002C5C] text-[14px]">${rejected.stats}</span>
+                    <p class="description text-[#323B49] my-4">${rejected.description}</p>
+                    <div class="flex items-center gap-3">
+                        <button class="btn-interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn-rejected btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+                <div>
+                    <button class="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+        `
+        filterSection.appendChild(div)
+    }
+}
