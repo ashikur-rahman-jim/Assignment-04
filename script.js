@@ -79,8 +79,43 @@ function toggleBtn(id) {
 
 }
 
+// Delete function
+function deleteCard(cardEl) {
+    const companyName = cardEl.querySelector('.company-name').innerText;
+
+    allCards.querySelectorAll('.cards').forEach(card => {
+        if (card.querySelector('.company-name').innerText === companyName) {
+            card.remove();
+        }
+    });
+
+    interviewList = interviewList.filter(item => item.companyName !== companyName);
+    rejectedList = rejectedList.filter(item => item.companyName !== companyName);
+
+    // interview.innerText = interviewList.length;
+    // rejected.innerText = rejectedList.length;
+    // total.innerText = allCards.children.length;
+    // updateJobsCount(currentStatus);
+
+    if (currentStatus === 'interview-filter-btn') {
+        renderInterview();
+        updateNoJobs(interviewList);
+    } else if (currentStatus === 'rejected-filter-btn') {
+        renderRejected();
+        updateNoJobs(rejectedList);
+    }
+}
+
 // Delegation allCards section
 mainContainer.addEventListener('click', function (event) {
+
+    if (event.target.closest('.delete-btn')) {
+        const cardEl = event.target.closest('.cards');
+        if (cardEl) deleteCard(cardEl);
+        return;
+    }
+
+
     if (event.target.classList.contains('btn-interview')) {
 
         const parenNode = event.target.parentNode.parentNode;
@@ -157,6 +192,12 @@ mainContainer.addEventListener('click', function (event) {
 // Delegation — filterSection
 filterSection.addEventListener('click', function (event) {
 
+    if (event.target.closest('.delete-btn')) {
+        const cardEl = event.target.closest('.cards');
+        if (cardEl) deleteCard(cardEl);
+        return;
+    }
+
     if (event.target.classList.contains('btn-interview')) {
         const parenNode = event.target.parentNode.parentNode;
         const companyName = parenNode.querySelector('.company-name').innerText;
@@ -216,7 +257,7 @@ function renderInterview() {
                     </div>
                 </div>
                 <div>
-                    <button class="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="delete-btn cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
         `
         filterSection.appendChild(div)
@@ -247,7 +288,7 @@ function renderRejected() {
                     </div>
                 </div>
                 <div>
-                    <button class="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="delete-btn cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
         `
         filterSection.appendChild(div)
