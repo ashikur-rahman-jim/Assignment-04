@@ -15,12 +15,25 @@ const noJobs = getId('no-jobs');
 // Get all-cards and all-cards length add to total,jobs.
 const allCards = getId('all-cards');
 total.innerText = allCards.children.length;
-jobsCount.innerText = allCards.children.length;
+updateJobsCount('all-filter-btn');
 
 // Style toggle button
 const allFilterBtn = getId('all-filter-btn');
 const interviewFilterBtn = getId('interview-filter-btn');
 const rejectedFilterBtn = getId('rejected-filter-btn');
+
+// Jobs count update function
+function updateJobsCount(status) {
+    const totalJobs = allCards.children.length;
+    if (status === 'all-filter-btn') {
+        jobsCount.innerText = `${totalJobs} jobs`;
+    } else if (status === 'interview-filter-btn') {
+        jobsCount.innerText = `${interviewList.length} out of ${totalJobs} jobs`;
+    } else if (status === 'rejected-filter-btn') {
+        jobsCount.innerText = `${rejectedList.length} out of ${totalJobs} jobs`;
+    }
+}
+
 
 // No jobs section show/hide function
 function updateNoJobs(list) {
@@ -49,6 +62,8 @@ function toggleBtn(id) {
 
     select.classList.remove('btn-outline');
     select.classList.add('btn-primary');
+
+    updateJobsCount(id);
 
     // if (id === 'interview-filter-btn' || id === 'rejected-filter-btn') {
     //     // const cards = document.querySelectorAll('.cards').classList.add('hidden');
@@ -92,10 +107,10 @@ function deleteCard(cardEl) {
     interviewList = interviewList.filter(item => item.companyName !== companyName);
     rejectedList = rejectedList.filter(item => item.companyName !== companyName);
 
-    // interview.innerText = interviewList.length;
-    // rejected.innerText = rejectedList.length;
-    // total.innerText = allCards.children.length;
-    // updateJobsCount(currentStatus);
+    interview.innerText = interviewList.length;
+    rejected.innerText = rejectedList.length;
+    total.innerText = allCards.children.length;
+    updateJobsCount(currentStatus);
 
     if (currentStatus === 'interview-filter-btn') {
         renderInterview();
@@ -146,6 +161,10 @@ mainContainer.addEventListener('click', function (event) {
 
         rejectedList = rejectedList.filter(item => item.companyName != cardInfo.companyName);
 
+        interview.innerText = interviewList.length;
+        rejected.innerText = rejectedList.length;
+        updateJobsCount(currentStatus);
+
         if (currentStatus == 'rejected-filter-btn') {
             renderRejected();
             updateNoJobs(rejectedList);
@@ -180,6 +199,10 @@ mainContainer.addEventListener('click', function (event) {
 
         interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName);
 
+        interview.innerText = interviewList.length;
+        rejected.innerText = rejectedList.length;
+        updateJobsCount(currentStatus);
+
         if (currentStatus == 'interview-filter-btn') {
             renderInterview();
             updateNoJobs(interviewList);
@@ -208,6 +231,10 @@ filterSection.addEventListener('click', function (event) {
             interviewList.push(existing);
         }
 
+        interview.innerText = interviewList.length;
+        rejected.innerText = rejectedList.length;
+        updateJobsCount(currentStatus);
+
         allCards.querySelectorAll('.cards').forEach(card => {
             if (card.querySelector('.company-name').innerText === companyName) {
                 card.querySelector('.stats').innerText = 'INTERVIEW';
@@ -223,6 +250,10 @@ filterSection.addEventListener('click', function (event) {
             existing.stats = 'REJECTED';
             rejectedList.push(existing);
         }
+
+        interview.innerText = interviewList.length;
+        rejected.innerText = rejectedList.length;
+        updateJobsCount(currentStatus);
 
         allCards.querySelectorAll('.cards').forEach(card => {
             if (card.querySelector('.company-name').innerText === companyName) {
