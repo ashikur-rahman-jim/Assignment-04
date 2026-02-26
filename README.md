@@ -15,7 +15,7 @@ Answer : DOM-এর মাধ্যমে createElement() ব্যবহার 
 const div = document.createElement("div");
 
 এরপর element-এর ভেতরে content যোগ করার জন্য innerText অথবা innerHTML ব্যবহার করতে হবে। যেমন:
-div.innerText = "New div";
+div.innerText ="New div";
 div.innerHTML = "<h1> New div </h1>";
 
 এরপর এটাকে insert করার জন্য appendChild() ব্যবহার করতে হবে। যেমন:
