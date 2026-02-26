@@ -12,15 +12,15 @@ querySelectorAll(): এটি দিয়ে class name এবং tag name দি�
 
 ### 2. How do you create and insert a new element into the DOM?
 Answer : DOM-এর মাধ্যমে createElement() ব্যবহার করে নতুন element তৈরি করতে পারি। যেমন:
-const div = document.createElement("div");
+`const div = document.createElement("div");`
 
 এরপর element-এর ভেতরে content যোগ করার জন্য innerText অথবা innerHTML ব্যবহার করতে হবে। যেমন:
-div.innerText ="New div";
-div.innerHTML = "<h1> New div </h1>";
+`div.innerText ="New div";`
+`div.innerHTML = "<h1> New div </h1>";`
 
 এরপর এটাকে insert করার জন্য appendChild() ব্যবহার করতে হবে। যেমন:
-const parent = document.getElementById("container");
-parent.appendChild(div);
+`const parent = document.getElementById("container");`
+`parent.appendChild(div);`
 
 ### What is Event Bubbling? And how does it work?
 Answer : Event Bubbling মানে হলো, যখন কোনো element-এ event trigger হয়, তখন সেই event-টি সেই element থেকে শুরু করে উপরের দিকে অর্থাৎ প্রথমে parent,
